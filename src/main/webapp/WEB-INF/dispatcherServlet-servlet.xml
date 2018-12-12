@@ -22,7 +22,7 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<!-- 配置视图解析器 -->
+	<!-- 配置视图解析器，需要我们自己再WEB-INF下创建一个views文件夹，以后我们的jsp文件就放在这里。。当然你想起别的名字也可以 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
