@@ -1,6 +1,17 @@
 package com.sunsy.crud.bean;
 
 public class Department {
+	
+	public Department() {
+		super();
+	}
+	
+	public Department(Integer deptId, String deptName) {
+		super();
+		this.deptId = deptId;
+		this.deptName = deptName;
+	}
+	
     private Integer deptId;
 
     private String deptName;

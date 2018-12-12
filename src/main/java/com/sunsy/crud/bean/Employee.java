@@ -10,19 +10,8 @@ public class Employee {
     private String email;
 
     private Integer dId;
-    
-    //我们自己添加的一个属性，我们希望在员工类里包含该员工所在部门的信息
-    private Department department;
 
-    public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-	public Integer getEmpId() {
+    public Integer getEmpId() {
         return empId;
     }
 

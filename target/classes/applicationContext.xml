@@ -39,7 +39,7 @@
 		<!-- mybatis数据源，上边配置的那个 -->
 		<property name="dataSource" ref="pooledDataSource"></property>
 		<!-- mapper文件的位置 -->
-		<property name="mapperLocation" value="class:mapper/*.xml"></property>
+		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
 	</bean>
 
 	<!-- 配置扫描器，把mybatis接口的实现加入到ioc容器中 -->
@@ -55,7 +55,7 @@
 	<!-- 基于注解的事务 -->
 	<aop:config>
 		<aop:pointcut expression="execution(* com.sunsy.crud.service..*(..))" id="txPoint"/>
-		<aop:advisor advice-ref="txPoint"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
 	</aop:config>
 	
 	<!-- 事务增强，事务如何切入 -->
