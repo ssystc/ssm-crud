@@ -47,6 +47,12 @@
 		<property name="basePackage" value="com.sunsy.crud.dao"></property>
 	</bean>
 	
+	<!-- 配置一个可执行批量插入的sqlSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
+	
 	<!-- 事务控制相关 ，题外话：在springboot里这个DatasourceTransactionManager会被自动配置，方便多了，下边这些配置就都不用了-->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="pooledDataSource"></property>
@@ -67,6 +73,8 @@
 			<tx:method name="get*" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
+	
+	
 	
 	
 </beans>

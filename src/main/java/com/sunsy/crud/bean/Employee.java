@@ -1,7 +1,23 @@
 package com.sunsy.crud.bean;
 
 public class Employee {
-    private Integer empId;
+	
+	//以下自己添加
+	public Employee() {
+		super();
+	}
+	
+    public Employee(Integer empId, String empName, String gender, String email, Integer dId) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.gender = gender;
+		this.email = email;
+		this.dId = dId;
+	}
+    //以上自己添加
+
+	private Integer empId;
 
     private String empName;
 
@@ -10,8 +26,20 @@ public class Employee {
     private String email;
 
     private Integer dId;
+    
+    //以下自己添加
+    private Department department;
+    
+    public Department getDepartment() {
+		return department;
+	}
 
-    public Integer getEmpId() {
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	//以上自己添加
+	
+	public Integer getEmpId() {
         return empId;
     }
 

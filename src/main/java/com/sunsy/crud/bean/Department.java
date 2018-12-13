@@ -2,6 +2,7 @@ package com.sunsy.crud.bean;
 
 public class Department {
 	
+	//以下是我们自己添加的
 	public Department() {
 		super();
 	}
@@ -11,6 +12,7 @@ public class Department {
 		this.deptId = deptId;
 		this.deptName = deptName;
 	}
+	//以上是我们自己添加的
 	
     private Integer deptId;
 
