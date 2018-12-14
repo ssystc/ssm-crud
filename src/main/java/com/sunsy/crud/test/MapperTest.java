@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.sunsy.crud.bean.Employee;
 import com.sunsy.crud.dao.DepartmentMapper;
 import com.sunsy.crud.dao.EmployeeMapper;
 

@@ -12,4 +12,9 @@
 		<!-- 批量定义别名(别名为实体类下的类名，第一个字母大小写都可以) -->
 		<package name="com.sunsy.crud.bean"/>
 	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+	</plugins>
+	
 </configuration>
