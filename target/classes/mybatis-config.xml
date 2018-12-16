@@ -14,7 +14,10 @@
 	</typeAliases>
 	
 	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- 不可能到达一个不正确的页码，比如所99999页，-1页 -->
+			<property name="reasonable" value="true"/>
+		</plugin>
 	</plugins>
 	
 </configuration>
