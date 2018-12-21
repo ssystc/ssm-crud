@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,6 +22,15 @@ public class EmployeeController {
 	
 	@Autowired
 	EmployeeService employeeService;
+	
+	
+	@RequestMapping(value="/emp", method=RequestMethod.POST)
+	@ResponseBody
+	public Msg saveEmp(Employee employee) {
+		employeeService.saveEmp(employee);
+		return Msg.success();
+	}
+	
 	
 	/**
 	 * 分页查询所有员工信息，返回json的形式
@@ -36,6 +47,22 @@ public class EmployeeController {
 		//把查询结果放到pageInfo里，这个pagehelper提供的类很好用，封装了各种我们需要的信息，那个5代表连续现实的页数
 		PageInfo<Employee> page = new PageInfo<Employee>(emps, 5);
 		return Msg.success().add("pageInfo", page);
+	}
+	
+	/**
+	 * 检查用户名是否可用
+	 * @param empName
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checkuser")
+	public Msg checkuser(@RequestParam("empName") String empName) {
+		boolean b = employeeService.checkUser(empName);
+		if(b) {
+			return Msg.success();
+		}else {
+			return Msg.fail();
+		}
 	}
 	
 	
